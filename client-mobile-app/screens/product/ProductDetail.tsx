@@ -234,7 +234,11 @@ const ProductDetail = () => {
               <Text style={{ fontSize: 20, fontWeight: "600" }}>-</Text>
             </Pressable>
             <Text
-              style={{ paddingHorizontal: 10, fontSize: 20, fontWeight: "600" }}
+              style={{
+                paddingHorizontal: 10,
+                fontSize: 20,
+                fontWeight: "600",
+              }}
             >
               1
             </Text>

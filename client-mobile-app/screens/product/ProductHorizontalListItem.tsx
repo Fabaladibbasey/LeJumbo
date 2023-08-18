@@ -1,5 +1,6 @@
 import { Pressable, StyleSheet, Text, View, Image } from "react-native";
 import { Product } from "../../app/models/product";
+import colors from "../../app/utils/colors";
 
 interface ProductHorizontalListItemProps {
   product: Product;
@@ -24,7 +25,7 @@ const ProductHorizontalListItem = ({
 
       <View
         style={{
-          backgroundColor: "#E31837",
+          backgroundColor: colors.primary,
           paddingVertical: 5,
           width: 130,
           justifyContent: "center",
