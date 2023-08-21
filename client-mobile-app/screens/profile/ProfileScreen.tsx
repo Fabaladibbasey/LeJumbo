@@ -71,7 +71,7 @@ const ProfileScreen = () => {
       </View>
 
       <View style={{ marginTop: 20 }}>
-        <TouchableRipple onPress={() => {}}>
+        <TouchableRipple onPress={() => console.log("merge accounts")}>
           <View
             style={{
               flexDirection: "row",
@@ -80,10 +80,10 @@ const ProfileScreen = () => {
               paddingHorizontal: 16,
             }}
           >
-            <Text style={{ fontSize: 16 }}>Dark Theme</Text>
+            <Text style={{ fontSize: 16 }}>Merge Accounts</Text>
             <AppIcon
               color={colors.primary}
-              name="toggle-switch-off-outline"
+              name="account-plus-outline"
               size={30}
             />
           </View>

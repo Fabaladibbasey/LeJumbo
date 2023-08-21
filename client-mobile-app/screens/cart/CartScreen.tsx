@@ -5,6 +5,7 @@ import agent from "../../app/api/agent";
 import CartItem from "./CartItem";
 import { Product } from "../../app/models/product";
 import colors from "../../app/utils/colors";
+import { TouchableRipple } from "react-native-paper";
 const CartScreen = () => {
   const [cartItems, setCartItems] = useState<Product[]>([]);
 
@@ -21,16 +22,15 @@ const CartScreen = () => {
         contentContainerStyle={{ paddingBottom: 100 }}
         style={{
           padding: 20,
-          // backgroundColor: "#fff",
+          paddingTop: 0,
           borderTopLeftRadius: 20,
           borderTopRightRadius: 20,
-          marginTop: 20,
         }}
       >
         {cartItems.slice(1, 5).map((item) => (
           <CartItem key={item.id} item={item} />
         ))}
-        {/* //show Subtotal, shipping, tax, total */}
+
         <View
           style={{
             flexDirection: "row",
@@ -61,10 +61,10 @@ const CartScreen = () => {
             </Text>
           </View>
         </View>
-        <Pressable
+        <TouchableRipple
           onPress={() => console.log("Proceed to checkout")}
           style={{
-            backgroundColor: colors.dark,
+            backgroundColor: colors.primary,
             padding: 10,
             borderRadius: 5,
             justifyContent: "center",
@@ -82,7 +82,7 @@ const CartScreen = () => {
           >
             Proceed to Checkout ({cartItems.length})
           </Text>
-        </Pressable>
+        </TouchableRipple>
       </ScrollView>
     </AppSafeAreaView>
   );

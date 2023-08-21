@@ -1,51 +1,56 @@
 import { Pressable, StyleSheet, Text, View, Image } from "react-native";
 import { Product } from "../../app/models/product";
 import colors from "../../app/utils/colors";
+import { TouchableRipple } from "react-native-paper";
 
 interface ProductHorizontalListItemProps {
   product: Product;
+  onPress: () => void;
 }
 
 const ProductHorizontalListItem = ({
   product,
+  onPress,
 }: ProductHorizontalListItemProps) => {
   return (
-    <Pressable
-      style={{
-        marginVertical: 10,
-        alignItems: "center",
-        justifyContent: "center",
-        marginHorizontal: 10,
-      }}
-    >
-      <Image
-        style={{ width: 150, height: 150, resizeMode: "contain" }}
-        source={{ uri: product.image }}
-      />
-
+    <TouchableRipple onPress={onPress}>
       <View
         style={{
-          backgroundColor: colors.primary,
-          paddingVertical: 5,
-          width: 130,
-          justifyContent: "center",
+          marginVertical: 10,
           alignItems: "center",
-          marginTop: 10,
-          borderRadius: 4,
+          justifyContent: "center",
+          marginHorizontal: 10,
         }}
       >
-        <Text
+        <Image
+          style={{ width: 150, height: 150, resizeMode: "contain" }}
+          source={{ uri: product.image }}
+        />
+
+        <View
           style={{
-            textAlign: "center",
-            color: "white",
-            fontSize: 13,
-            fontWeight: "bold",
+            backgroundColor: colors.primary,
+            paddingVertical: 5,
+            width: 130,
+            justifyContent: "center",
+            alignItems: "center",
+            marginTop: 10,
+            borderRadius: 4,
           }}
         >
-          Upto 20% off
-        </Text>
+          <Text
+            style={{
+              textAlign: "center",
+              color: "white",
+              fontSize: 13,
+              fontWeight: "bold",
+            }}
+          >
+            Upto 20% off
+          </Text>
+        </View>
       </View>
-    </Pressable>
+    </TouchableRipple>
   );
 };
 export default ProductHorizontalListItem;

@@ -1,5 +1,6 @@
-import { SafeAreaView, StyleSheet } from "react-native";
+import { SafeAreaView, StyleSheet, View } from "react-native";
 import Constants from "expo-constants";
+import colors from "../utils/colors";
 
 interface AppSafeAreaViewProps {
   children: React.ReactNode;
@@ -8,16 +9,28 @@ interface AppSafeAreaViewProps {
 
 const AppSafeAreaView = ({ propStyles, children }: AppSafeAreaViewProps) => {
   return (
-    <SafeAreaView style={[styles.container, propStyles]}>
-      {children}
-    </SafeAreaView>
+    <View
+      style={{
+        flex: 1,
+        backgroundColor: colors.white,
+      }}
+    >
+      <View
+        style={{
+          backgroundColor: colors.primary,
+          height: Constants.statusBarHeight,
+        }}
+      ></View>
+      <SafeAreaView style={[styles.safeArea, propStyles]}>
+        {children}
+      </SafeAreaView>
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {
+  safeArea: {
     flex: 1,
-    marginTop: Constants.statusBarHeight,
   },
 });
 

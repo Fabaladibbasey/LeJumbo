@@ -11,8 +11,9 @@ import AppIcon from "../../app/components/AppIcon";
 import React, { useState } from "react";
 import Carousel from "react-native-snap-carousel";
 import colors from "../../app/utils/colors";
+import { TouchableRipple } from "react-native-paper";
 
-const ProductDetail = () => {
+const ProductDetailsScreen = () => {
   const [heart, setHeart] = useState("cards-heart-outline");
 
   const handleHeart = () => {
@@ -164,6 +165,7 @@ const ProductDetail = () => {
             style={{
               fontSize: 15,
               fontWeight: "500",
+              color: colors.dark,
               marginTop: 10,
               marginBottom: 10,
             }}
@@ -254,7 +256,8 @@ const ProductDetail = () => {
             </Pressable>
           </View>
         </View>
-        <Pressable
+        <TouchableRipple
+          onPress={() => console.log("Add to cart")}
           style={{
             backgroundColor: colors.dark,
             padding: 10,
@@ -268,8 +271,9 @@ const ProductDetail = () => {
           <Text style={{ color: "white", fontWeight: "600", fontSize: 16 }}>
             Add to Cart
           </Text>
-        </Pressable>
-        <Pressable
+        </TouchableRipple>
+        <TouchableRipple
+          onPress={() => console.log("Buy Now")}
           style={{
             backgroundColor: colors.primary,
             padding: 10,
@@ -281,12 +285,12 @@ const ProductDetail = () => {
           }}
         >
           <Text>Buy Now</Text>
-        </Pressable>
+        </TouchableRipple>
       </ScrollView>
     </AppSafeAreaView>
   );
 };
-export default ProductDetail;
+export default ProductDetailsScreen;
 const styles = StyleSheet.create({
   scrollView: {
     backgroundColor: "white",
